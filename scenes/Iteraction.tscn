@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://sprites/keys/interaction1.png" type="Texture" id=1]
+[ext_resource path="res://sprites/keys/interaction2.png" type="Texture" id=2]
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "iteraction",
+"speed": 2.0
+} ]
+
+[node name="Iteraction" type="AnimatedSprite"]
+position = Vector2( 397.917, 620.241 )
+scale = Vector2( 1.3685, 1.3685 )
+frames = SubResource( 6 )
+animation = "iteraction"
+playing = true

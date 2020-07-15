@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://sprites/MovignThings/movingWheel2.png" type="Texture" id=1]
+[ext_resource path="res://sprites/MovignThings/movingWheel1.png" type="Texture" id=2]
+[ext_resource path="res://sprites/MovignThings/movingWheel3.png" type="Texture" id=3]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 1 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "rotate",
+"speed": 5.0
+} ]
+
+[node name="RotateWheel" type="AnimatedSprite"]
+position = Vector2( 590.704, 399.154 )
+scale = Vector2( 0.62435, 0.62435 )
+z_index = 1
+frames = SubResource( 1 )
+animation = "rotate"
+playing = true

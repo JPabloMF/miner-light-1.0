@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://sprites/pillars/pillarWithTorch2.png" type="Texture" id=1]
+[ext_resource path="res://sprites/pillars/pillarWithTorch3.png" type="Texture" id=2]
+[ext_resource path="res://sprites/pillars/pillarWithTorch1.png" type="Texture" id=3]
+[ext_resource path="res://sprites/torch/light.png" type="Texture" id=4]
+
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "pillarTorch",
+"speed": 7.0
+} ]
+
+[node name="pillarWithTorch" type="AnimatedSprite"]
+position = Vector2( 191.235, 404.952 )
+scale = Vector2( 2.125, 2.125 )
+frames = SubResource( 5 )
+animation = "pillarTorch"
+frame = 1
+playing = true
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 12.6323, -3.75153 )
+texture = ExtResource( 4 )
+offset = Vector2( -2.49673, -0.919662 )
+color = Color( 0.976471, 0.588235, 0.247059, 1 )
+
+[node name="Light2D2" type="Light2D" parent="."]
+position = Vector2( -9.48972, -3.83966 )
+texture = ExtResource( 4 )
+offset = Vector2( -2.49673, -0.919662 )
+color = Color( 0.976471, 0.588235, 0.247059, 1 )

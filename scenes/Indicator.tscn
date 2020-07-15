@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://sprites/Indicator/indicator2.png" type="Texture" id=1]
+[ext_resource path="res://sprites/Indicator/indicator1.png" type="Texture" id=2]
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "indicate",
+"speed": 3.0
+} ]
+
+[node name="Indicator" type="AnimatedSprite"]
+position = Vector2( 184.649, 356.584 )
+frames = SubResource( 9 )
+animation = "indicate"
+playing = true

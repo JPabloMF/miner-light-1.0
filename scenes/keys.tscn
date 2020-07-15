@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://sprites/keys/keys2.png" type="Texture" id=1]
+[ext_resource path="res://sprites/keys/keys1.png" type="Texture" id=2]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "keys",
+"speed": 1.0
+} ]
+
+[node name="keys" type="AnimatedSprite"]
+position = Vector2( 114.526, 406.15 )
+frames = SubResource( 1 )
+animation = "keys"
+frame = 1
+playing = true

@@ -1,0 +1,418 @@
+[gd_scene load_steps=47 format=2]
+
+[ext_resource path="res://sprites/chapter/run1.png" type="Texture" id=1]
+[ext_resource path="res://scripts/Player.gd" type="Script" id=2]
+[ext_resource path="res://sprites/background/bg2.png" type="Texture" id=3]
+[ext_resource path="res://sprites/background/background.png" type="Texture" id=4]
+[ext_resource path="res://sprites/background/bg1.png" type="Texture" id=5]
+[ext_resource path="res://sprites/background/bg3.png" type="Texture" id=6]
+[ext_resource path="res://sprites/chapter/run2.png" type="Texture" id=7]
+[ext_resource path="res://sprites/chapter/run3.png" type="Texture" id=8]
+[ext_resource path="res://sprites/chapter/run4.png" type="Texture" id=9]
+[ext_resource path="res://sprites/scinematics/scinematicRevive7.png" type="Texture" id=10]
+[ext_resource path="res://sprites/scinematics/scinematicDie5.png" type="Texture" id=11]
+[ext_resource path="res://sprites/scinematics/scinematicDie7.png" type="Texture" id=12]
+[ext_resource path="res://sprites/scinematics/scinematicDie3.png" type="Texture" id=13]
+[ext_resource path="res://sprites/scinematics/scinematicDie1.png" type="Texture" id=14]
+[ext_resource path="res://sprites/scinematics/scinematicDie4.png" type="Texture" id=15]
+[ext_resource path="res://sprites/scinematics/scinematicDie6.png" type="Texture" id=16]
+[ext_resource path="res://sprites/scinematics/scinematicDie2.png" type="Texture" id=17]
+[ext_resource path="res://sprites/scinematics/scinematicRevive3.png" type="Texture" id=18]
+[ext_resource path="res://sprites/scinematics/scinematicRevive4.png" type="Texture" id=19]
+[ext_resource path="res://sprites/scinematics/scinematicRevive5.png" type="Texture" id=20]
+[ext_resource path="res://sprites/scinematics/scinematicRevive1.png" type="Texture" id=21]
+[ext_resource path="res://sprites/scinematics/scinematicRevive6.png" type="Texture" id=22]
+[ext_resource path="res://sprites/scinematics/scinematicRevive2.png" type="Texture" id=23]
+[ext_resource path="res://sprites/chapter/jump1.png" type="Texture" id=24]
+[ext_resource path="res://sprites/chapter/landing1.png" type="Texture" id=25]
+[ext_resource path="res://sprites/chapter/jump2.png" type="Texture" id=27]
+[ext_resource path="res://sprites/background/bgtest.png" type="Texture" id=28]
+[ext_resource path="res://sprites/background/bgtest1.png" type="Texture" id=29]
+[ext_resource path="res://scenes/Iteraction.tscn" type="PackedScene" id=30]
+[ext_resource path="res://sprites/chapter/stairs3.png" type="Texture" id=31]
+[ext_resource path="res://sprites/chapter/stairs4.png" type="Texture" id=32]
+[ext_resource path="res://sprites/chapter/stairs1.png" type="Texture" id=33]
+[ext_resource path="res://sprites/chapter/stairs2.png" type="Texture" id=34]
+[ext_resource path="res://icon.png" type="Texture" id=35]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 8.59016
+height = 13.3914
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 9.1027
+height = 13.5344
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 14 ), ExtResource( 17 ), ExtResource( 13 ), ExtResource( 15 ), ExtResource( 11 ), ExtResource( 16 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "die",
+"speed": 15.0
+} ]
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 21 ), ExtResource( 23 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 22 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "respawn",
+"speed": 15.0
+} ]
+
+[sub_resource type="Animation" id=13]
+resource_name = "idleLeft"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "idleRight"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "jump"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 24 ), ExtResource( 27 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "land"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 25 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "runLeft"
+length = 0.7
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, true, true ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "runRight"
+length = 0.7
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, false, false, false ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "stairs"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 33 ), ExtResource( 34 ), ExtResource( 31 ), ExtResource( 32 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "stairsIdle"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 33 ) ]
+}
+
+[node name="Player" type="KinematicBody2D"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0.188749, 0.234497 )
+scale = Vector2( 1.34231, 1.39017 )
+texture = ExtResource( 1 )
+flip_h = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 2 )
+
+[node name="Player" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource( 3 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.7, 0.7 )
+process_mode = 0
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
+position = Vector2( 116.131, 2.66968 )
+motion_scale = Vector2( 0.1, 0.1 )
+motion_mirroring = Vector2( 1000, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( -157.455, 30.0173 )
+scale = Vector2( 2.53295, 2.97522 )
+texture = ExtResource( 4 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
+position = Vector2( 489.911, 149.34 )
+motion_scale = Vector2( 0.2, 0.2 )
+motion_mirroring = Vector2( 800, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2( -265.399, -85.0852 )
+scale = Vector2( 1.57062, 1.33643 )
+texture = ExtResource( 5 )
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
+position = Vector2( 481.375, 121.95 )
+motion_scale = Vector2( 0.3, 0.3 )
+motion_mirroring = Vector2( 800, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2( -464, -4 )
+scale = Vector2( 1.25, 1.65 )
+texture = ExtResource( 3 )
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
+position = Vector2( 460.84, 126.005 )
+motion_scale = Vector2( 0.4, 0.4 )
+motion_mirroring = Vector2( 970, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2( -253.254, 23.9091 )
+scale = Vector2( 1.52385, 1.49887 )
+texture = ExtResource( 6 )
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( 378.055, 31.1784 )
+motion_scale = Vector2( 0.1, 0.1 )
+motion_mirroring = Vector2( 600, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer6"]
+position = Vector2( -6.69223, 118.216 )
+scale = Vector2( 3.7062, 4.35333 )
+texture = ExtResource( 29 )
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( 741.861, 216.051 )
+motion_scale = Vector2( 0.4, 0.4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer5"]
+position = Vector2( -426.401, -61.2454 )
+scale = Vector2( 2.43534, 2.39542 )
+texture = ExtResource( 28 )
+
+[node name="Audio Effect" type="Node" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Audio Effect"]
+
+[node name="DieAnimation" type="AnimatedSprite" parent="."]
+position = Vector2( -3.8147e-06, 0.621124 )
+scale = Vector2( 14, 7.96118 )
+z_index = 5
+frames = SubResource( 4 )
+animation = "die"
+
+[node name="RespawnAnimation" type="AnimatedSprite" parent="."]
+position = Vector2( 0, 2.98023e-08 )
+scale = Vector2( 14, 7.98238 )
+z_index = 5
+frames = SubResource( 5 )
+animation = "respawn"
+
+[node name="Iteraction" parent="." instance=ExtResource( 30 )]
+visible = false
+position = Vector2( -0.0331573, -26.1141 )
+frame = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -320.0
+margin_top = -78.0
+margin_right = 320.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 633.0
+margin_bottom = 71.0
+
+[node name="text" type="Label" parent="CanvasLayer/PanelContainer/HBoxContainer"]
+margin_top = 25.0
+margin_right = 73.0
+margin_bottom = 39.0
+text = "Hello world"
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="chapter" type="TextureRect" parent="CanvasLayer/PanelContainer/HBoxContainer"]
+margin_left = 77.0
+margin_right = 141.0
+margin_bottom = 64.0
+texture = ExtResource( 35 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/idleLeft = SubResource( 13 )
+anims/idleRight = SubResource( 6 )
+anims/jump = SubResource( 7 )
+anims/land = SubResource( 8 )
+anims/runLeft = SubResource( 9 )
+anims/runRight = SubResource( 10 )
+anims/stairs = SubResource( 11 )
+anims/stairsIdle = SubResource( 12 )
+[connection signal="area_entered" from="Player" to="." method="_on_Player_area_entered"]
+[connection signal="area_exited" from="Player" to="." method="_on_Player_area_exited"]
