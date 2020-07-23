@@ -73,7 +73,6 @@ position = Vector2( 729.24, 569.696 )
 scale = Vector2( 2.16437, 2.16437 )
 frames = SubResource( 1 )
 animation = "magichouse"
-frame = 2
 playing = true
 
 [node name="MagicHouse" type="Area2D" parent="MagicHouse"]
