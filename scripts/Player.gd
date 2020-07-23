@@ -12,12 +12,14 @@ var collision_magic_house = false
 var collision_armory = false
 var collision_magic_house_first_floor_tp = false
 var collision_magic_house_second_floor_tp = false
+var collision_jump_wall = false
 
 # This timer is to prevent movement breaks
 var move_timer = 0
-var last_horizontal_key_pressed = "right"
+var last_horizontal_key_pressed = ""
 
 var _timerDash = null
+var has_key = false
 
 func get_timer():
 	_timerDash = Timer.new()
@@ -34,8 +36,12 @@ func stop_timer():
 	
 func _on_Timer_timeout():
 	stop_timer()
-	
 
+# GUI
+func handle_show_key():
+	if has_key:
+		$CanvasLayer/ContainerKey.show()
+	
 # MOVEMENT
 func handle_apply_gravity():
 	if stairs_entered:
@@ -81,9 +87,15 @@ func handle_vertical_movement():
 			$AnimationPlayer.play("stairsIdle")
 	else:
 		if motion.y < 0:
-			$AnimationPlayer.play("jump")
+			if last_horizontal_key_pressed == "right":
+				$AnimationPlayer.play("jumpRight")
+			else:
+				$AnimationPlayer.play("jumpLeft")
 		else:
-			$AnimationPlayer.play("land")
+			if last_horizontal_key_pressed == "right":
+				$AnimationPlayer.play("landRight")
+			else:
+				$AnimationPlayer.play("landLeft")
 
 func handle_initial_animation():
 	yield(get_tree().create_timer(0.35), "timeout")
@@ -96,15 +108,36 @@ func handle_reset_initial_movements():
 	motion.y = 0
 	motion.x = 0
 
+# WALL JUMP
+func get_which_wall_collided():
+	for i in range(get_slide_count()):
+		var collision = get_slide_collision(i)
+		if collision.normal.x > 0:
+			return "left"
+		elif collision.normal.x < 0:
+			return "right"
+	return "none"
+
+func handle_wall_jump():
+	if Input.is_action_pressed("ui_up"):
+		# jump in wall
+		if not is_on_floor() and is_on_wall() and collision_jump_wall:
+			motion.y = -200
+			if get_which_wall_collided() == "left":
+				motion.x += 600
+			else:
+				motion.x -= 600
+	
+
 # POWERUPS
 func handle_dash_movement():
 	if last_horizontal_key_pressed == "right":
 			$AnimationPlayer.play("idleRight")
-			motion.x = +400
+			motion.x = +450
 			motion.y = 0
 	elif last_horizontal_key_pressed == "left":
 		$AnimationPlayer.play("idleLeft")
-		motion.x = -400
+		motion.x = -450
 		motion.y = 0
 		
 func handle_dash():
@@ -117,21 +150,21 @@ func handle_dash():
 func handle_enter_magic_house():
 	if Input.is_action_pressed("Interaction"):
 		if collision_magic_house:
-			get_tree().change_scene("res://scenes/worlds/MagicHouse.tscn")
+			get_tree().change_scene("res://scenes/worlds/City/MagicHouse.tscn")
 		elif collision_magic_house_second_floor_tp:
-			get_tree().change_scene("res://scenes/worlds/MagicHouse.tscn")
+			get_tree().change_scene("res://scenes/worlds/City/MagicHouse.tscn")
 		elif collision_magic_house_first_floor_tp:
-			get_tree().change_scene("res://scenes/worlds/MagicHouseSecondFloor.tscn")
+			get_tree().change_scene("res://scenes/worlds/City/MagicHouseSecondFloor.tscn")
 
 func handle_enter_armory():
 	if Input.is_action_pressed("Interaction"):
 		if collision_armory:
-			get_tree().change_scene("res://scenes/worlds/Armory.tscn")
+			get_tree().change_scene("res://scenes/worlds/City/Armory.tscn")
 
 # UTILS
-func handle_hide_parallax():
-	if get_tree().get_current_scene().get_name() == "MagicHouse":
-		$ParallaxBackground/ParallaxLayer/Sprite.hide()
+#func handle_hide_parallax():
+#	if get_tree().get_current_scene().get_name() == "MagicHouse":
+#		$ParallaxBackground/ParallaxLayer/Sprite.hide()
 
 func handle_camera_offset():
 	if get_tree().get_current_scene().get_name() == "City":
@@ -148,14 +181,16 @@ func _physics_process(delta):
 	if !died:
 		handle_camera_offset()
 		handle_apply_gravity()
-		handle_hide_parallax()
+#		handle_hide_parallax()
 #		yield(get_tree().create_timer(0.7), "timeout")
 		if move_timer > 0.9:
 			handle_horizontal_movement()
 			handle_vertical_movement()
 			handle_enter_magic_house()
 			handle_enter_armory()
-			handle_dash()
+#			handle_dash()
+			handle_wall_jump()
+			handle_show_key()
 	else:
 		motion.x = 0
 	motion = move_and_slide(motion,Vector2.UP,false,4,PI/4,false)
@@ -197,11 +232,15 @@ func _on_Player_area_entered(area):
 	elif "Stairs" == area.get_name():
 		stairs_entered = true
 	elif "ArmoryFirstFloorStair" == area.get_name():
-		get_tree().change_scene("res://scenes/worlds/ArmorySecondFloor.tscn")
+		get_tree().change_scene("res://scenes/worlds/City/ArmorySecondFloor.tscn")
 	elif "ArmorySecondFloorStair" == area.get_name():
-		get_tree().change_scene("res://scenes/worlds/Armory.tscn")
+		get_tree().change_scene("res://scenes/worlds/City/Armory.tscn")
 	elif "ExitToCity" == area.get_name():
-		get_tree().change_scene("res://scenes/worlds/City.tscn")
+		get_tree().change_scene("res://scenes/worlds/City/City.tscn")
+	elif "JumpWall" in area.get_name():
+		collision_jump_wall = true
+	elif "Key" == area.get_name():
+		has_key = true
 
 func _on_Player_area_exited(area):
 	if "MovingCage" == area.get_name():
@@ -220,3 +259,5 @@ func _on_Player_area_exited(area):
 		handle_hide_iteraction()
 	elif "Stairs" == area.get_name():
 		stairs_entered = false
+	elif "JumpWall" in area.get_name():
+		collision_jump_wall = false

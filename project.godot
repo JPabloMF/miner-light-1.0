@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="miner light 1.0"
-run/main_scene="res://scenes/worlds/City.tscn"
+run/main_scene="res://scenes/worlds/City/City.tscn"
 config/icon="res://icon.png"
 
 [display]

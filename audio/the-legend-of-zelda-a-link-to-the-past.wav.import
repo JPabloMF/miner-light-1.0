@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/the-legend-of-zelda-a-link-to-the-past.wav-bce5ad55cec225d3cb6d97bf0c33cabd.sample"
+
+[deps]
+
+source_file="res://audio/the-legend-of-zelda-a-link-to-the-past.wav"
+dest_files=[ "res://.import/the-legend-of-zelda-a-link-to-the-past.wav-bce5ad55cec225d3cb6d97bf0c33cabd.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
