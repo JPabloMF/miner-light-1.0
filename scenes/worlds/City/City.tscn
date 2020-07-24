@@ -1,22 +1,20 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://sprites/city/magichouse1.png" type="Texture" id=1]
 [ext_resource path="res://sprites/city/poso3.png" type="Texture" id=2]
 [ext_resource path="res://sprites/city/poso6.png" type="Texture" id=3]
 [ext_resource path="res://sprites/city/magichouse3.png" type="Texture" id=4]
-[ext_resource path="res://sprites/keys/interaction1.png" type="Texture" id=5]
+[ext_resource path="res://scenes/worlds/City/ParallaxBackground.gd" type="Script" id=5]
 [ext_resource path="res://sprites/city/magichouse4.png" type="Texture" id=6]
 [ext_resource path="res://sprites/city/poso2.png" type="Texture" id=7]
 [ext_resource path="res://sprites/city/magichouse2.png" type="Texture" id=8]
 [ext_resource path="res://sprites/city/house1.png" type="Texture" id=9]
-[ext_resource path="res://sprites/keys/interaction2.png" type="Texture" id=10]
 [ext_resource path="res://sprites/city/poso1.png" type="Texture" id=11]
 [ext_resource path="res://sprites/city/poso5.png" type="Texture" id=12]
 [ext_resource path="res://sprites/city/poso4.png" type="Texture" id=13]
 [ext_resource path="res://TileSets/TilesetBrown.tres" type="TileSet" id=14]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scenes/Indicator.tscn" type="PackedScene" id=16]
-[ext_resource path="res://scenes/Iteraction.tscn" type="PackedScene" id=17]
 [ext_resource path="res://scenes/keys.tscn" type="PackedScene" id=18]
 [ext_resource path="res://TileSets/darkTileSet.tres" type="TileSet" id=19]
 [ext_resource path="res://sprites/trees/tree1.png" type="Texture" id=20]
@@ -56,18 +54,10 @@ extents = Vector2( 10.0566, 1.07422 )
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 34.5096, 10 )
 
-[sub_resource type="SpriteFrames" id=7]
-animations = [ {
-"frames": [ ExtResource( 5 ), ExtResource( 10 ) ],
-"loop": true,
-"name": "iteraction",
-"speed": 2.0
-} ]
-
-[sub_resource type="OccluderPolygon2D" id=8]
+[sub_resource type="OccluderPolygon2D" id=7]
 polygon = PoolVector2Array( -0.208916, 42.7613, 0.0124893, 34.9384, 1.56233, 32.9457, 5.03102, 36.6358, 6.13805, 33.7575, 10.4186, 36.4882, 14.7729, 33.9789, 17.8725, 38.1856, 18.7582, 34.9384, 21.9316, 36.6358, 23.1863, 33.9789, 26.1383, 35.2336, 25.3265, 30.8054, 0.971916, 22.2444, 1.04572, 19.8828, 27.2454, 20.3994, 25.1051, 14.1262, 13.0016, 13.5358, 1.78374, 7.55788, 1.11953, 3.20356, 8.72115, 6.59843, 13.2231, 5.93422, 19.57, 8.73869, 24.2195, 2.31793, 16.5442, 2.02272, 19.201, -1.22456, 10.5662, -0.634148, 13.5183, -4.10283, 4.21925, -3.95523, 7.39272, -7.0549, 0.898163, -6.53829, 2.15279, -13.8447, 7.02371, -10.5236, 9.01637, -12.221, 12.9279, -10.376, 17.4298, -14.8779, 16.2489, -18.3466, 12.2636, -16.5015, 10.1234, -18.7156, 12.6327, -20.2654, 5.91668, -18.8632, 4.58825, -21.3725, 7.17132, -22.7747, 2.07899, -23.2175, 1.71001, -27.129, 4.44067, -25.5054, 4.88348, -28.236, 8.05695, -24.9887, 9.8282, -26.0958, 11.378, -29.2693, 2.22662, -34.1402, 2.30042, -36.1328, 6.65472, -34.8782, 10.3448, -37.4613, 3.25984, -42.5536, 0.0125656, -42.2584, -7.51522, -37.3136, -3.82513, -35.3948, -0.504051, -36.3542, -0.13504, -36.428, -4.78455, -32.2951, -11.1315, -29.5645, -9.43407, -25.5792, -3.52993, -27.9408, -1.83248, -25.653, -1.16833, -23.1436, -9.87695, -19.8964, -18.6594, -12.2948, -16.2239, -10.9663, -9.58175, -13.1804, -1.24214, -12.7376, -2.71817, -7.57146, -24.2683, 5.19625, -19.3236, 5.93427, -13.1243, 3.86781, -13.8623, 5.63906, -8.62236, 3.056, -5.00608, 5.12244, -1.7588, 3.056, -2.20161, 6.37708, -10.6888, 12.8716, -18.3643, 12.724, -28.3275, 18.8496, -26.0396, 21.5802, -20.8735, 20.916, -12.3863, 21.7278, -3.89911, 19.5876, -2.94637, 22.9539, -11.0141, 24.071, -15.6686, 27.4843, -17.4063, 25.7466, -19.6404, 29.6564, -22.0608, 27.5464, -25.3499, 30.8355, -21.316, 33.0697, -22.0608, 35.8624, -15.7307, 34.7453, -13.5586, 33.6903, -12.5656, 35.8624, -3.19461, 32.8214, -4.62199, 34.7453, -4.12542, 42.5027 )
 
-[sub_resource type="ParticlesMaterial" id=9]
+[sub_resource type="ParticlesMaterial" id=8]
 emission_shape = 1
 emission_sphere_radius = 50.0
 flag_disable_z = true
@@ -75,6 +65,17 @@ spread = 180.0
 gravity = Vector3( 0, 98, 0 )
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
+
+[sub_resource type="ParticlesMaterial" id=9]
+emission_shape = 2
+emission_box_extents = Vector3( 500, 1, 1 )
+flag_disable_z = true
+direction = Vector3( 10, 10, 0 )
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 10.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+color = Color( 0.745098, 0.698039, 0.592157, 1 )
 
 [node name="City" type="Node2D"]
 position = Vector2( -107.987, -418.379 )
@@ -95,7 +96,6 @@ position = Vector2( 488.065, 291.512 )
 scale = Vector2( 2.29661, 2.29661 )
 frames = SubResource( 1 )
 animation = "magichouse"
-frame = 1
 playing = true
 
 [node name="MagicHouse" type="Area2D" parent="MagicHouse"]
@@ -141,30 +141,17 @@ shape = SubResource( 6 )
 
 [node name="keys" parent="." instance=ExtResource( 18 )]
 position = Vector2( 297.378, 308.94 )
-frame = 3
-
-[node name="Iteraction" parent="." instance=ExtResource( 17 )]
-visible = false
-frame = 1
-
-[node name="Iteraction2" type="AnimatedSprite" parent="."]
-visible = false
-position = Vector2( 686.72, 635.068 )
-scale = Vector2( 1.3685, 1.3685 )
-frames = SubResource( 7 )
-animation = "iteraction"
-frame = 1
-playing = true
 
 [node name="Indicator" parent="." instance=ExtResource( 16 )]
 position = Vector2( 299.502, 368.861 )
+frame = 1
 
 [node name="TileMap2" type="TileMap" parent="."]
 position = Vector2( -245.407, -271.836 )
 tile_set = ExtResource( 19 )
 cell_size = Vector2( 32, 32 )
 format = 1
-tile_data = PoolIntArray( 1441782, 1, 0, 1441783, 1, 0, 1441784, 1, 0, 1441785, 1, 0, 1441786, 1, 0, 1441787, 1, 0, 1441788, 1, 0, 1441789, 1, 0, 1441790, 1, 0, 1441791, 1, 0, 1376256, 1, 0, 1376257, 1, 0, 1376258, 1, 0, 1376259, 1, 0, 1376260, 1, 0, 1376261, 1, 0, 1376262, 1, 0, 1376263, 10, 0, 1376264, 10, 0, 1376265, 1, 0, 1376266, 1, 0, 1376267, 1, 0, 1376268, 1, 0, 1376269, 10, 0, 1376270, 10, 0, 1376271, 10, 0, 1376272, 1, 0, 1376273, 1, 0, 1376274, 10, 0, 1376275, 10, 0, 1376276, 10, 0, 1376277, 1, 0, 1376278, 1, 0, 1376279, 1, 0, 1376280, 1, 0, 1376281, 1, 0, 1376282, 1, 0, 1376283, 1, 0, 1376284, 1, 0, 1376285, 1, 0, 1376286, 1, 0, 1376287, 10, 0, 1376288, 10, 0, 1376289, 10, 0, 1376290, 10, 0, 1376291, 10, 0, 1507318, 4, 0, 1507319, 4, 0, 1507320, 4, 0, 1507321, 4, 0, 1507322, 4, 0, 1507323, 4, 0, 1507324, 4, 0, 1507325, 4, 0, 1507326, 4, 0, 1507327, 4, 0, 1441792, 4, 0, 1441793, 4, 0, 1441794, 4, 0, 1441795, 4, 0, 1441796, 4, 0, 1441797, 4, 0, 1441798, 4, 0, 1441799, 4, 0, 1441800, 4, 0, 1441801, 4, 0, 1441802, 4, 0, 1441803, 4, 0, 1441804, 4, 0, 1441805, 4, 0, 1441806, 4, 0, 1441807, 4, 0, 1441808, 4, 0, 1441809, 4, 0, 1441810, 4, 0, 1441811, 4, 0, 1441812, 4, 0, 1441813, 4, 0, 1441814, 4, 0, 1441815, 4, 0, 1441816, 4, 0, 1441817, 4, 0, 1441818, 4, 0, 1441819, 4, 0, 1441820, 4, 0, 1441821, 4, 0, 1441822, 4, 0, 1441823, 4, 0, 1441824, 4, 0, 1441825, 4, 0, 1441826, 4, 0, 1441827, 4, 0, 1572854, 4, 0, 1572855, 4, 0, 1572856, 4, 0, 1572857, 4, 0, 1572858, 4, 0, 1572859, 4, 0, 1572860, 4, 0, 1572861, 4, 0, 1572862, 4, 0, 1572863, 4, 0, 1507328, 4, 0, 1507329, 4, 0, 1507330, 4, 0, 1507331, 4, 0, 1507332, 4, 0, 1507333, 4, 0, 1507334, 4, 0, 1507335, 4, 0, 1507336, 4, 0, 1507337, 4, 0, 1507338, 4, 0, 1507339, 4, 0, 1507340, 4, 0, 1507341, 4, 0, 1507342, 4, 0, 1507343, 4, 0, 1507344, 4, 0, 1507345, 4, 0, 1507346, 4, 0, 1507347, 4, 0, 1507348, 4, 0, 1507349, 4, 0, 1507350, 4, 0, 1507351, 4, 0, 1507352, 4, 0, 1507353, 4, 0, 1507354, 4, 0, 1507355, 4, 0, 1507356, 4, 0, 1507357, 4, 0, 1507358, 4, 0, 1507359, 4, 0, 1507360, 4, 0, 1507361, 4, 0, 1507362, 4, 0, 1507363, 4, 0, 1638390, 4, 0, 1638391, 4, 0, 1638392, 4, 0, 1638393, 4, 0, 1638394, 4, 0, 1638395, 4, 0, 1638396, 4, 0, 1638397, 4, 0, 1638398, 4, 0, 1638399, 4, 0, 1572864, 4, 0, 1572865, 4, 0, 1572866, 4, 0, 1572867, 4, 0, 1572868, 4, 0, 1572869, 4, 0, 1572870, 4, 0, 1572871, 4, 0, 1572872, 4, 0, 1572873, 4, 0, 1572874, 4, 0, 1572875, 4, 0, 1572876, 4, 0, 1572877, 4, 0, 1572878, 4, 0, 1572879, 4, 0, 1572880, 4, 0, 1572881, 4, 0, 1572882, 4, 0, 1572883, 4, 0, 1572884, 4, 0, 1572885, 4, 0, 1572886, 4, 0, 1572887, 4, 0, 1572888, 4, 0, 1572889, 4, 0, 1572890, 4, 0, 1572891, 4, 0, 1572892, 4, 0, 1572893, 4, 0, 1572894, 4, 0, 1572895, 4, 0, 1572896, 4, 0, 1572897, 4, 0, 1572898, 4, 0, 1572899, 4, 0 )
+tile_data = PoolIntArray( 917494, 4, 0, 917495, 4, 0, 917496, 4, 0, 917497, 4, 0, 917498, 4, 0, 917499, 3, 0, 851994, 5, 0, 851995, 4, 0, 851996, 4, 0, 851997, 4, 0, 851998, 4, 0, 851999, 4, 0, 852000, 4, 0, 852001, 4, 0, 852002, 4, 0, 852003, 4, 0, 983030, 4, 0, 983031, 4, 0, 983032, 4, 0, 983033, 4, 0, 983034, 4, 0, 983035, 3, 0, 917530, 5, 0, 917531, 4, 0, 917532, 4, 0, 917533, 4, 0, 917534, 4, 0, 917535, 4, 0, 917536, 4, 0, 917537, 4, 0, 917538, 4, 0, 917539, 4, 0, 1048566, 4, 0, 1048567, 4, 0, 1048568, 4, 0, 1048569, 4, 0, 1048570, 4, 0, 1048571, 3, 0, 983066, 5, 0, 983067, 4, 0, 983068, 4, 0, 983069, 4, 0, 983070, 4, 0, 983071, 4, 0, 983072, 4, 0, 983073, 4, 0, 983074, 4, 0, 983075, 4, 0, 1114102, 4, 0, 1114103, 4, 0, 1114104, 4, 0, 1114105, 4, 0, 1114106, 4, 0, 1114107, 3, 0, 1048602, 5, 0, 1048603, 4, 0, 1048604, 4, 0, 1048605, 4, 0, 1048606, 4, 0, 1048607, 4, 0, 1048608, 4, 0, 1048609, 4, 0, 1048610, 4, 0, 1048611, 4, 0, 1179638, 4, 0, 1179639, 4, 0, 1179640, 4, 0, 1179641, 4, 0, 1179642, 4, 0, 1179643, 3, 0, 1114138, 5, 0, 1114139, 4, 0, 1114140, 4, 0, 1114141, 4, 0, 1114142, 4, 0, 1114143, 4, 0, 1114144, 4, 0, 1114145, 4, 0, 1114146, 4, 0, 1114147, 4, 0, 1245174, 4, 0, 1245175, 4, 0, 1245176, 4, 0, 1245177, 4, 0, 1245178, 4, 0, 1245179, 3, 0, 1179674, 5, 0, 1179675, 4, 0, 1179676, 4, 0, 1179677, 4, 0, 1179678, 4, 0, 1179679, 4, 0, 1179680, 4, 0, 1179681, 4, 0, 1179682, 4, 0, 1179683, 4, 0, 1310710, 4, 0, 1310711, 4, 0, 1310712, 4, 0, 1310713, 4, 0, 1310714, 4, 0, 1310715, 3, 0, 1245210, 5, 0, 1245211, 4, 0, 1245212, 4, 0, 1245213, 4, 0, 1245214, 4, 0, 1245215, 4, 0, 1245216, 4, 0, 1245217, 4, 0, 1245218, 4, 0, 1245219, 4, 0, 1376246, 4, 0, 1376247, 4, 0, 1376248, 4, 0, 1376249, 4, 0, 1376250, 4, 0, 1376251, 3, 0, 1310746, 5, 0, 1310747, 4, 0, 1310748, 4, 0, 1310749, 4, 0, 1310750, 4, 0, 1310751, 4, 0, 1310752, 4, 0, 1310753, 4, 0, 1310754, 4, 0, 1310755, 4, 0, 1441782, 4, 0, 1441783, 4, 0, 1441784, 4, 0, 1441785, 4, 0, 1441786, 4, 0, 1441787, 14, 0, 1441788, 1, 0, 1441789, 1, 0, 1441790, 1, 0, 1441791, 1, 0, 1376256, 1, 0, 1376257, 1, 0, 1376258, 1, 0, 1376259, 1, 0, 1376260, 1, 0, 1376261, 1, 0, 1376262, 1, 0, 1376263, 10, 0, 1376264, 10, 0, 1376265, 1, 0, 1376266, 1, 0, 1376267, 1, 0, 1376268, 1, 0, 1376269, 10, 0, 1376270, 10, 0, 1376271, 10, 0, 1376272, 1, 0, 1376273, 1, 0, 1376274, 10, 0, 1376275, 10, 0, 1376276, 10, 0, 1376277, 1, 0, 1376278, 1, 0, 1376279, 1, 0, 1376280, 1, 0, 1376281, 1, 0, 1376282, 15, 0, 1376283, 4, 0, 1376284, 4, 0, 1376285, 4, 0, 1376286, 4, 0, 1376287, 4, 0, 1376288, 4, 0, 1376289, 4, 0, 1376290, 4, 0, 1376291, 4, 0, 1507318, 4, 0, 1507319, 4, 0, 1507320, 4, 0, 1507321, 4, 0, 1507322, 4, 0, 1507323, 4, 0, 1507324, 4, 0, 1507325, 4, 0, 1507326, 4, 0, 1507327, 4, 0, 1441792, 4, 0, 1441793, 4, 0, 1441794, 4, 0, 1441795, 4, 0, 1441796, 4, 0, 1441797, 4, 0, 1441798, 4, 0, 1441799, 4, 0, 1441800, 4, 0, 1441801, 4, 0, 1441802, 4, 0, 1441803, 4, 0, 1441804, 4, 0, 1441805, 4, 0, 1441806, 4, 0, 1441807, 4, 0, 1441808, 4, 0, 1441809, 4, 0, 1441810, 4, 0, 1441811, 4, 0, 1441812, 4, 0, 1441813, 4, 0, 1441814, 4, 0, 1441815, 4, 0, 1441816, 4, 0, 1441817, 4, 0, 1441818, 4, 0, 1441819, 4, 0, 1441820, 4, 0, 1441821, 4, 0, 1441822, 4, 0, 1441823, 4, 0, 1441824, 4, 0, 1441825, 4, 0, 1441826, 4, 0, 1441827, 4, 0, 1572854, 4, 0, 1572855, 4, 0, 1572856, 4, 0, 1572857, 4, 0, 1572858, 4, 0, 1572859, 4, 0, 1572860, 4, 0, 1572861, 4, 0, 1572862, 4, 0, 1572863, 4, 0, 1507328, 4, 0, 1507329, 4, 0, 1507330, 4, 0, 1507331, 4, 0, 1507332, 4, 0, 1507333, 4, 0, 1507334, 4, 0, 1507335, 4, 0, 1507336, 4, 0, 1507337, 4, 0, 1507338, 4, 0, 1507339, 4, 0, 1507340, 4, 0, 1507341, 4, 0, 1507342, 4, 0, 1507343, 4, 0, 1507344, 4, 0, 1507345, 4, 0, 1507346, 4, 0, 1507347, 4, 0, 1507348, 4, 0, 1507349, 4, 0, 1507350, 4, 0, 1507351, 4, 0, 1507352, 4, 0, 1507353, 4, 0, 1507354, 4, 0, 1507355, 4, 0, 1507356, 4, 0, 1507357, 4, 0, 1507358, 4, 0, 1507359, 4, 0, 1507360, 4, 0, 1507361, 4, 0, 1507362, 4, 0, 1507363, 4, 0, 1638390, 4, 0, 1638391, 4, 0, 1638392, 4, 0, 1638393, 4, 0, 1638394, 4, 0, 1638395, 4, 0, 1638396, 4, 0, 1638397, 4, 0, 1638398, 4, 0, 1638399, 4, 0, 1572864, 4, 0, 1572865, 4, 0, 1572866, 4, 0, 1572867, 4, 0, 1572868, 4, 0, 1572869, 4, 0, 1572870, 4, 0, 1572871, 4, 0, 1572872, 4, 0, 1572873, 4, 0, 1572874, 4, 0, 1572875, 4, 0, 1572876, 4, 0, 1572877, 4, 0, 1572878, 4, 0, 1572879, 4, 0, 1572880, 4, 0, 1572881, 4, 0, 1572882, 4, 0, 1572883, 4, 0, 1572884, 4, 0, 1572885, 4, 0, 1572886, 4, 0, 1572887, 4, 0, 1572888, 4, 0, 1572889, 4, 0, 1572890, 4, 0, 1572891, 4, 0, 1572892, 4, 0, 1572893, 4, 0, 1572894, 4, 0, 1572895, 4, 0, 1572896, 4, 0, 1572897, 4, 0, 1572898, 4, 0, 1572899, 4, 0 )
 
 [node name="tree" type="Sprite" parent="."]
 position = Vector2( -44.5214, 278.215 )
@@ -176,7 +163,15 @@ __meta__ = {
 }
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="tree"]
-occluder = SubResource( 8 )
+occluder = SubResource( 7 )
+
+[node name="Particles2D" type="Particles2D" parent="tree"]
+position = Vector2( 1.45072, -2.79174 )
+scale = Vector2( 0.352494, 0.352494 )
+lifetime = 1.2
+speed_scale = 0.2
+process_material = SubResource( 8 )
+texture = ExtResource( 21 )
 
 [node name="tree3" type="Sprite" parent="."]
 position = Vector2( -145.017, 309.943 )
@@ -188,7 +183,15 @@ __meta__ = {
 }
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="tree3"]
-occluder = SubResource( 8 )
+occluder = SubResource( 7 )
+
+[node name="Particles2D2" type="Particles2D" parent="tree3"]
+position = Vector2( -3.93109, -16.4708 )
+scale = Vector2( 0.468612, 0.468612 )
+lifetime = 1.2
+speed_scale = 0.2
+process_material = SubResource( 8 )
+texture = ExtResource( 21 )
 
 [node name="tree4" type="Sprite" parent="."]
 position = Vector2( -245.189, 272.43 )
@@ -200,7 +203,55 @@ __meta__ = {
 }
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="tree4"]
-occluder = SubResource( 8 )
+occluder = SubResource( 7 )
+
+[node name="Particles2D3" type="Particles2D" parent="tree4"]
+position = Vector2( -2.75449, -4.40314 )
+scale = Vector2( 0.335222, 0.335222 )
+lifetime = 1.2
+speed_scale = 0.2
+process_material = SubResource( 8 )
+texture = ExtResource( 21 )
+
+[node name="tree5" type="Sprite" parent="."]
+position = Vector2( 386.839, 273.539 )
+scale = Vector2( 2.9831, 2.9831 )
+z_index = -1
+texture = ExtResource( 20 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="tree5"]
+occluder = SubResource( 7 )
+
+[node name="Particles2D3" type="Particles2D" parent="tree5"]
+position = Vector2( -2.75449, -4.40314 )
+scale = Vector2( 0.335222, 0.335222 )
+lifetime = 1.2
+speed_scale = 0.2
+process_material = SubResource( 8 )
+texture = ExtResource( 21 )
+
+[node name="tree6" type="Sprite" parent="."]
+position = Vector2( 218.548, 272.832 )
+scale = Vector2( 2.9831, 2.9831 )
+z_index = -1
+texture = ExtResource( 20 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="tree6"]
+occluder = SubResource( 7 )
+
+[node name="Particles2D3" type="Particles2D" parent="tree6"]
+position = Vector2( -2.75449, -4.40314 )
+scale = Vector2( 0.335222, 0.335222 )
+lifetime = 1.2
+speed_scale = 0.2
+process_material = SubResource( 8 )
+texture = ExtResource( 21 )
 
 [node name="tree2" type="Sprite" parent="."]
 visible = false
@@ -211,17 +262,12 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Particles2D" type="Particles2D" parent="."]
-position = Vector2( -40.4058, 270.295 )
-lifetime = 1.2
-speed_scale = 0.2
-process_material = SubResource( 9 )
-texture = ExtResource( 21 )
-
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource( 5 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2( 850, 0 )
+position = Vector2( 19.089, -23.682 )
+motion_mirroring = Vector2( 848, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2( 34.6251, -139.607 )
@@ -229,7 +275,8 @@ scale = Vector2( 3.88026, 3.88026 )
 texture = ExtResource( 22 )
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0.9, 0.9 )
+position = Vector2( 19.089, -23.682 )
+motion_scale = Vector2( 0.9, 1 )
 motion_mirroring = Vector2( 680, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
@@ -238,7 +285,8 @@ scale = Vector2( 2.64519, 2.64519 )
 texture = ExtResource( 24 )
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0.8, 0.8 )
+position = Vector2( 19.089, -23.682 )
+motion_scale = Vector2( 0.8, 1 )
 motion_mirroring = Vector2( 670, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
@@ -247,31 +295,50 @@ scale = Vector2( 2.68461, 2.68461 )
 texture = ExtResource( 25 )
 
 [node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( 19.089, -6.84509 )
 motion_scale = Vector2( 0.6, 1 )
 motion_mirroring = Vector2( 670, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer5"]
-visible = false
 position = Vector2( 97.9354, -182.492 )
 scale = Vector2( 2.68461, 2.68461 )
 texture = ExtResource( 27 )
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0.7, 0.7 )
+position = Vector2( 19.089, -23.682 )
+motion_scale = Vector2( 0.7, 1 )
 motion_mirroring = Vector2( 670, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer4"]
-visible = false
 position = Vector2( 90.2082, -161.869 )
 scale = Vector2( 2.68461, 2.68461 )
 texture = ExtResource( 26 )
 
 [node name="Light2D" type="Light2D" parent="."]
-position = Vector2( -246.766, 110.558 )
-scale = Vector2( 5.29415, 4.60013 )
+position = Vector2( -185.331, 146.842 )
+scale = Vector2( 4.28486, 4.03319 )
 z_index = -1
 texture = ExtResource( 23 )
 energy = 1.27
 shadow_enabled = true
 shadow_color = Color( 1, 0.74902, 0, 0 )
 shadow_gradient_length = 2.0
+
+[node name="Light2D2" type="Light2D" parent="."]
+position = Vector2( 301.991, 148.624 )
+scale = Vector2( 4.28486, 4.03319 )
+z_index = -1
+texture = ExtResource( 23 )
+energy = 1.27
+shadow_enabled = true
+shadow_color = Color( 1, 0.74902, 0, 0 )
+shadow_gradient_length = 2.0
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( 132.006, -64.0942 )
+amount = 100
+lifetime = 3.0
+speed_scale = 1.5
+randomness = 1.0
+visibility_rect = Rect2( -500, 0, 1000, 500 )
+process_material = SubResource( 9 )

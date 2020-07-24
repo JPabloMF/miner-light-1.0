@@ -51,6 +51,7 @@ func handle_apply_gravity():
 
 func handle_horizontal_movement():
 	if Input.is_action_pressed("ui_left"):
+		Input.vibrate_handheld(500)
 		motion.x = max(motion.x - ACCELERATION, -MAX_SPEED)
 		last_horizontal_key_pressed = "left"
 		if not is_on_wall():
@@ -58,6 +59,7 @@ func handle_horizontal_movement():
 		else:
 			$AnimationPlayer.play("idleLeft")
 	elif Input.is_action_pressed("ui_right"):
+		Input.vibrate_handheld(500)
 		motion.x = min(motion.x + ACCELERATION, MAX_SPEED)
 		last_horizontal_key_pressed = "right"
 		if not is_on_wall():

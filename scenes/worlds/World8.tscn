@@ -32,7 +32,7 @@ position = Vector2( 531.076, 85.5109 )
 position = Vector2( 670.847, 180.852 )
 
 [node name="FallingTrunk6" parent="FallingTrunks" instance=ExtResource( 2 )]
-position = Vector2( 868.626, 170.162 )
+position = Vector2( 859.376, 201.275 )
 
 [node name="FallingTrunk7" parent="FallingTrunks" instance=ExtResource( 2 )]
 position = Vector2( 1039.49, 268.272 )
